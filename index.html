@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud Inventory Management System</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">📦</div><div><b>StockCloud</b><small>Inventory Management</small></div></div>
+  <nav>
+    <button class="nav active" data-page="dashboard">📊 Dashboard</button>
+    <button class="nav" data-page="products">📦 Products</button>
+    <button class="nav" data-page="stock">🔄 Stock Movement</button>
+    <button class="nav" data-page="suppliers">🚚 Suppliers</button>
+    <button class="nav" data-page="reports">📈 Reports</button>
+  </nav>
+  <div class="side-bottom"><span>● Cloud storage ready</span><button id="reset">Reset Demo Data</button></div>
+</aside>
+<main>
+<header><div><h1 id="title">Dashboard</h1><p>Monitor and manage your inventory.</p></div><div class="admin"><div class="avatar">A</div><div><b>Administrator</b><small>Inventory Admin</small></div></div></header>
+
+<section id="dashboard" class="page active">
+<div class="stats">
+ <div class="stat"><i class="blue">📦</i><div><small>Total Products</small><b id="sProducts">0</b></div></div>
+ <div class="stat"><i class="green">✓</i><div><small>Total Stock</small><b id="sStock">0</b></div></div>
+ <div class="stat"><i class="orange">⚠</i><div><small>Low Stock</small><b id="sLow">0</b></div></div>
+ <div class="stat"><i class="purple">💰</i><div><small>Stock Value</small><b id="sValue">₹0</b></div></div>
+</div>
+<div class="two">
+ <div class="panel"><div class="head"><h3>Recent Stock Movements</h3><button class="link" data-go="stock">View all</button></div><div id="recent"></div></div>
+ <div class="panel"><div class="head"><h3>Low Stock Alerts</h3></div><div id="alerts"></div></div>
+</div>
+</section>
+
+<section id="products" class="page">
+<div class="section-head"><div><h2>Products</h2><p>Manage inventory items and stock levels.</p></div><button class="primary" id="addProduct">+ Add Product</button></div>
+<div class="toolbar"><input id="productSearch" placeholder="Search product, SKU, category..."><select id="catFilter"><option value="">All Categories</option></select></div>
+<div class="panel" id="productTable"></div>
+</section>
+
+<section id="stock" class="page">
+<div class="section-head"><div><h2>Stock Movement</h2><p>Record stock-in and stock-out transactions.</p></div><button class="primary" id="moveStock">+ Stock Movement</button></div>
+<div class="toolbar"><input id="moveSearch" placeholder="Search movements..."><select id="moveFilter"><option value="">All Types</option><option>Stock In</option><option>Stock Out</option></select></div>
+<div class="panel" id="movementTable"></div>
+</section>
+
+<section id="suppliers" class="page">
+<div class="section-head"><div><h2>Suppliers</h2><p>Manage suppliers and contact information.</p></div><button class="primary" id="addSupplier">+ Add Supplier</button></div>
+<div class="toolbar"><input id="supplierSearch" placeholder="Search suppliers..."></div>
+<div class="panel" id="supplierTable"></div>
+</section>
+
+<section id="reports" class="page">
+<div class="section-head"><div><h2>Reports</h2><p>Inventory summaries and category analysis.</p></div></div>
+<div class="report-cards">
+ <div class="report"><small>Total Inventory Value</small><b id="rValue">₹0</b></div>
+ <div class="report"><small>Units In Stock</small><b id="rUnits">0</b></div>
+ <div class="report"><small>Low Stock Items</small><b id="rLow">0</b></div>
+ <div class="report"><small>Suppliers</small><b id="rSuppliers">0</b></div>
+</div>
+<div class="panel"><div class="head"><h3>Stock by Category</h3></div><div id="categoryReport"></div></div>
+</section>
+</main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-box"><div class="modal-head"><h3 id="modalTitle"></h3><button id="close">×</button></div><form id="form"></form></div></div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
